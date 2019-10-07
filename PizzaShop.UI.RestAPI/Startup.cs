@@ -51,6 +51,13 @@ namespace PizzaShop.UI.RestAPI
         {
             if (env.IsDevelopment())
             {
+                using (var scope = app.ApplicationServices.CreateScope())
+                {
+                    var context = scope.ServiceProvider.GetRequiredService<PizzaShopContext>();
+                    context.Database.EnsureDeleted();
+                    context.Database.EnsureCreated();
+                    DbInitializer.Seed(context);
+                }
                 app.UseDeveloperExceptionPage();
             }
             else
