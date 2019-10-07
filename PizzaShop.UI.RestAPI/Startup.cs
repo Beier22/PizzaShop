@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using PizzaShop.Core.AppServices;
+using PizzaShop.Core.AppServices.Implementation;
 using PizzaShop.Core.DomainServices;
 using PizzaShop.Infrastructure;
 using PizzaShop.Infrastructure.Repositories;
@@ -34,8 +36,13 @@ namespace PizzaShop.UI.RestAPI
         {
             services.AddCors();
             services.AddScoped<IFastFoodRepository, FastFoodRepository>();
+            services.AddScoped<IFastFoodService, FastFoodService>();
+
             services.AddScoped<IPizzaRepository, PizzaRepository>();
+            services.AddScoped<IPizzaService, PizzaService>();
+
             services.AddScoped<IToppingRepository, ToppingRepository>();
+            services.AddScoped<IToppingServices, ToppingService>();
             if (Environment.IsDevelopment())
             {
                 services.AddDbContext<PizzaShopContext>(
