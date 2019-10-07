@@ -8,6 +8,13 @@ namespace PizzaShop.Infrastructure.Repositories
 {
     public class PizzaRepository : IPizzaRepository
     {
+        PizzaShopContext ctx;
+
+        public PizzaRepository(PizzaShopContext ctx)
+        {
+            this.ctx = ctx;
+        }
+        
         public Pizza CreatePizza(Pizza pizza)
         {
             throw new NotImplementedException();

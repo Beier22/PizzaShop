@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AppServices\Implementation\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\PizzaShop.Core.Entity\PizzaShop.Core.Entity.csproj" />
   </ItemGroup>
 
