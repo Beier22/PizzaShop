@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PizzaShop.Core.AppServices
 {
-    public interface IToppingServices
+    public interface IToppingService
     {
     }
 }
