@@ -6,7 +6,10 @@
 
   <ItemGroup>
     <Folder Include="AppServices\Implementation\" />
-    <Folder Include="DomainServices\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaShop.Core.Entity\PizzaShop.Core.Entity.csproj" />
   </ItemGroup>
 
 </Project>

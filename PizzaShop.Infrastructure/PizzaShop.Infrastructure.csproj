@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
+    <ProjectReference Include="..\PizzaShop.Core.Entity\PizzaShop.Core.Entity.csproj" />
+    <ProjectReference Include="..\PizzaShop.Core\PizzaShop.Core.csproj" />
   </ItemGroup>
 
 </Project>
