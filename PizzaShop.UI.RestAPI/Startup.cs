@@ -11,7 +11,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using PizzaShop.Core.DomainServices;
 using PizzaShop.Infrastructure;
+using PizzaShop.Infrastructure.Repositories;
 
 namespace PizzaShop.UI.RestAPI
 {
@@ -30,6 +32,10 @@ namespace PizzaShop.UI.RestAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
+            services.AddScoped<IFastFoodRepository, FastFoodRepository>();
+            services.AddScoped<IPizzaRepository, PizzaRepository>();
+            services.AddScoped<IToppingRepository, ToppingRepository>();
             if (Environment.IsDevelopment())
             {
                 services.AddDbContext<PizzaShopContext>(
