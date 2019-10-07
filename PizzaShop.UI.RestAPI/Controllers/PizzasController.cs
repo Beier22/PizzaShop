@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PizzaShop.Core.AppServices;
+using PizzaShop.Core.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +10,18 @@ namespace PizzaShop.UI.RestAPI.Controllers
 {
     public class PizzasController : ControllerBase
     {
+        IPizzaService serv;
+
+        public PizzasController(IPizzaService serv)
+        {
+            this.serv = serv;
+        }
         // GET api/values
         [Route("api/[controller]")]
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<Pizza>> Get()
         {
-            return new string[] { "hello", "hi" }; 
+            return serv.GetAllPizzas(); 
         }
 
         // GET api/values/5
