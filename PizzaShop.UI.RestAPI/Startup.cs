@@ -51,6 +51,12 @@ namespace PizzaShop.UI.RestAPI
                     opt => opt.UseSqlite("Data Source=PizzaShopSQLite.db")
                     );
             }
+            else
+            {
+                services.AddDbContext<PizzaShopContext>(
+                    opt => opt.UseSqlServer(Configuration.GetConnectionString("defaultConnection"))
+                    );
+            }
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -71,8 +77,13 @@ namespace PizzaShop.UI.RestAPI
             }
             else
             {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                using (var scope = app.ApplicationServices.CreateScope())
+                {
+                    var context = scope.ServiceProvider.GetService<PizzaShopContext>();
+                    context.Database.EnsureCreated();
+                }
                 app.UseHsts();
+                app.UseHttpsRedirection();
             }
 
             app.UseHttpsRedirection();
