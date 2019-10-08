@@ -27,16 +27,16 @@ namespace PizzaShop.UI.RestAPI.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public Pizza Get(int id)
         {
-            return "value";
+            return serv.ReadById(id);
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Pizza pizza)
         {
-
+            serv.CreatePizza(pizza);
         }
 
         // PUT api/values/5
@@ -49,6 +49,7 @@ namespace PizzaShop.UI.RestAPI.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            serv.DeletePizza(id);
         }
     }
 }

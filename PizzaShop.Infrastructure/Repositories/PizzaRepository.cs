@@ -16,20 +16,17 @@ namespace PizzaShop.Infrastructure.Repositories
             this.ctx = ctx;
         }
         
-        public Pizza CreatePizza(Pizza pizza)
+        public void CreatePizza(Pizza pizza)
         {
             var createdPizza = ctx.Pizzas.Add(pizza).Entity;
-            ctx.SaveChanges();
-            return createdPizza;
-            
+            ctx.SaveChanges();     
         }
 
-        public Pizza DeletePizza(int id)
+        public void DeletePizza(int id)
         {
             var pizzaToRemove = ReadById(id);
             ctx.Pizzas.Remove(pizzaToRemove);
             ctx.SaveChanges();
-            return pizzaToRemove;
         }
 
         public List<Pizza> ReadAllPizzas()

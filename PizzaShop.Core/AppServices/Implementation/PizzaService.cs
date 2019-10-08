@@ -15,9 +15,24 @@ namespace PizzaShop.Core.AppServices.Implementation
             this.repo = repo;
         }
 
+        public void CreatePizza(Pizza pizza)
+        {
+            repo.CreatePizza(pizza);
+        }
+
+        public void DeletePizza(int id)
+        {
+            repo.DeletePizza(id);
+        }
+
         public List<Pizza> GetAllPizzas()
         {
             return repo.ReadAllPizzas();
+        }
+
+        public Pizza ReadById(int id)
+        {
+            return repo.ReadById(id);
         }
     }
 }

@@ -7,10 +7,11 @@ namespace PizzaShop.Core.DomainServices
 {
     public interface IPizzaRepository
     {
-        Pizza CreatePizza(Pizza pizza);
+        void CreatePizza(Pizza pizza);
         List<Pizza> ReadAllPizzas();
         Pizza UpdatePizza(Pizza updatePizza);
-        Pizza DeletePizza(int id);
+        void DeletePizza(int id);
+        Pizza ReadById(int id);
         
 
     }

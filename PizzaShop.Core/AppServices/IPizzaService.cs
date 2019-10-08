@@ -8,5 +8,8 @@ namespace PizzaShop.Core.AppServices
     public interface IPizzaService
     {
         List<Pizza> GetAllPizzas();
+        void DeletePizza(int id);
+        void CreatePizza(Pizza pizza);
+        Pizza ReadById(int id);
     }
 }
