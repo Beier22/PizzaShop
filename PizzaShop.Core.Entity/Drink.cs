@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PizzaShop.Core.Entity
 {
-    public class Topping
+    public class Drink
     {
         public int Id { get; set; }
         public string Name { get; set; }

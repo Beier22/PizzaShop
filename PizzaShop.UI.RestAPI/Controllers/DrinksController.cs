@@ -10,19 +10,18 @@ namespace PizzaShop.UI.RestAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PizzasController : ControllerBase
+    public class DrinksController : ControllerBase
     {
-        IPizzaService serv;
-
-        public PizzasController(IPizzaService serv)
+        private IDrinkService serv;
+        public DrinksController(IDrinkService serv)
         {
             this.serv = serv;
         }
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<Pizza>> Get()
+        public ActionResult<IEnumerable<Drink>> Get()
         {
-            return serv.GetAllPizzas(); 
+            throw new NotImplementedException();
         }
 
         // GET api/values/5

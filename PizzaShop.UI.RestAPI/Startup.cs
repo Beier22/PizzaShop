@@ -42,8 +42,9 @@ namespace PizzaShop.UI.RestAPI
             services.AddScoped<IPizzaRepository, PizzaRepository>();
             services.AddScoped<IPizzaService, PizzaService>();
 
-            services.AddScoped<IToppingRepository, ToppingRepository>();
-            services.AddScoped<IToppingService, ToppingService>();
+            services.AddScoped<IDrinkRepository, DrinkRepository>();
+            services.AddScoped<IDrinkService, DrinkService>();
+
             if (Environment.IsDevelopment())
             {
                 services.AddDbContext<PizzaShopContext>(

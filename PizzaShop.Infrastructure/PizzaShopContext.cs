@@ -12,6 +12,6 @@ namespace PizzaShop.Infrastructure
 
         public DbSet<FastFood> FastFoods { get; set; }
         public DbSet<Pizza> Pizzas { get; set; }
-        public DbSet<Topping> Toppings { get; set; }
+        public DbSet<Drink> Drinks { get; set; }
     }
 }

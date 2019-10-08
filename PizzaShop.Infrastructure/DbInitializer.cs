@@ -11,48 +11,50 @@ namespace PizzaShop.Infrastructure
         {
             List<Pizza> pizzas = new List<Pizza>();
             List<FastFood> fastfoods = new List<FastFood>();
-            List<Topping> toppings = new List<Topping>();
+            List<Drink> drinks = new List<Drink>();
 
             Pizza p1 = new Pizza
             {
                 Name = "Pepperoni",
-                Size = "Large",
-                Price = 69.99,
-                Toppings = new List<Topping>()
+                NormalPrice = 69.99,
+                FamilyPrice = 99.99,
+                Toppings = "Cheese and pepperoni"
             };
 
             Pizza p2 = new Pizza
             {
                 Name = "Margherita",
-                Size = "Medium",
-                Price = 49.99,
-                Toppings = new List<Topping>()
+                NormalPrice = 49.99,
+                FamilyPrice = 79.99,
+                Toppings = "Cheese"
             };
 
             FastFood f1 = new FastFood
             {
                 Name = "Fries",
-                Size = "Medium",
-                Price = 29.99
+                SmallPrice = 29.99,
+                LargePrice = 39.99
             };
 
             FastFood f2 = new FastFood
             {
                 Name = "Cheese Burger",
-                Size = "Medium",
-                Price = 39.99
+                SmallPrice = 39.99,
+                LargePrice = 59.99
             };
 
-            Topping t1 = new Topping
+            Drink d1 = new Drink
             {
-                Name = "Mushroom",
-                Price = 4.99
+                Name = "Coca Cola",
+                Price = 19.99
+
+
             };
 
-            Topping t2 = new Topping
+            Drink d2 = new Drink
             {
-                Name = "Tomatoes",
-                Price = 4.99
+                Name = "Sprite",
+                Price = 19.99
             };
 
             pizzas.Add(p1);
@@ -61,12 +63,12 @@ namespace PizzaShop.Infrastructure
             fastfoods.Add(f1);
             fastfoods.Add(f2);
 
-            toppings.Add(t1);
-            toppings.Add(t2);
+            drinks.Add(d1);
+            drinks.Add(d2);
 
             ctx.Pizzas.AddRange(pizzas);
             ctx.FastFoods.AddRange(fastfoods);
-            ctx.Toppings.AddRange(toppings);
+            ctx.Drinks.AddRange(drinks);
             ctx.SaveChanges();
         }
     }
