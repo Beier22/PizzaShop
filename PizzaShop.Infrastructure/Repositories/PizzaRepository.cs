@@ -18,12 +18,18 @@ namespace PizzaShop.Infrastructure.Repositories
         
         public Pizza CreatePizza(Pizza pizza)
         {
-            throw new NotImplementedException();
+            var createdPizza = ctx.Pizzas.Add(pizza).Entity;
+            ctx.SaveChanges();
+            return createdPizza;
+            
         }
 
         public Pizza DeletePizza(int id)
         {
-            throw new NotImplementedException();
+            var pizzaToRemove = ReadById(id);
+            ctx.Pizzas.Remove(pizzaToRemove);
+            ctx.SaveChanges();
+            return pizzaToRemove;
         }
 
         public List<Pizza> ReadAllPizzas()
@@ -34,6 +40,10 @@ namespace PizzaShop.Infrastructure.Repositories
         public Pizza UpdatePizza(Pizza updatePizza)
         {
             throw new NotImplementedException();
+        }
+        public Pizza ReadById(int id)
+        {
+            return ctx.Pizzas.FirstOrDefault(c => c.Id == id);
         }
     }
 }
