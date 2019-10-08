@@ -14,19 +14,20 @@ namespace PizzaShop.Core.AppServices.Implementation
         {
             this.repo = repo;
         }
-        public void AddSize(int id, int size)
+
+        public void Create(Drink drink)
         {
-            throw new NotImplementedException();
+            repo.Create(drink);
         }
 
-        public void Create()
+        public void Delete(int id)
         {
-            throw new NotImplementedException();
+            repo.Delete(id);
         }
 
         public List<Drink> ReadAll()
         {
-            throw new NotImplementedException();
+            return repo.ReadAll();
         }
 
         public Drink ReadById(int id)

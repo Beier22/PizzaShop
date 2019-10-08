@@ -15,9 +15,23 @@ namespace PizzaShop.Infrastructure.Repositories
         {
             this.ctx = ctx;
         }
-        public void AddSize(int id, string size)
+
+        public void Create(Drink drink)
+        {
+            ctx.Drinks.Add(drink);
+            ctx.SaveChanges();
+        }
+
+        public void Delete(int id)
         {
             Drink drink = ReadById(id);
+            ctx.Drinks.Remove(drink);
+            ctx.SaveChanges();
+        }
+
+        public List<Drink> ReadAll()
+        {
+            return ctx.Drinks.ToList();
         }
 
         public Drink ReadById(int id)

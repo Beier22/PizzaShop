@@ -7,7 +7,9 @@ namespace PizzaShop.Core.DomainServices
 {
     public interface IDrinkRepository
     {
-        void AddSize(int id, string size);
         Drink ReadById(int id);
+        List<Drink> ReadAll();
+        void Create(Drink drink);
+        void Delete(int id);
     }
 }

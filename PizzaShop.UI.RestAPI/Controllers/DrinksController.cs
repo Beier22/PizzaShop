@@ -21,21 +21,21 @@ namespace PizzaShop.UI.RestAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Drink>> Get()
         {
-            throw new NotImplementedException();
+            return serv.ReadAll();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public Drink Get(int id)
         {
-            return "value";
+            return serv.ReadById(id);
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Drink drink)
         {
-
+            serv.Create(drink);
         }
 
         // PUT api/values/5
@@ -48,6 +48,7 @@ namespace PizzaShop.UI.RestAPI.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            serv.Delete(id);
         }
     }
 }

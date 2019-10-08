@@ -7,10 +7,10 @@ namespace PizzaShop.Core.AppServices
 {
     public interface IDrinkService
     {
-        void Create();
+        void Create(Drink drink);
         List<Drink> ReadAll();
         Drink ReadById(int id);
-        void AddSize(int id, int size);
+        void Delete(int id);
 
 
     }
