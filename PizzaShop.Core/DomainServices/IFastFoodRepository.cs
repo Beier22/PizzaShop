@@ -9,7 +9,7 @@ namespace PizzaShop.Core.DomainServices
     {
         FastFood CreateFastFood(FastFood fastFood);
         List<FastFood> ReadAllFastFood();
-        FastFood UpdateFastFood(FastFood updateFastFood);
+        FastFood ReadById(int id);
         FastFood DeleteFastFood(int id);
     }
 }

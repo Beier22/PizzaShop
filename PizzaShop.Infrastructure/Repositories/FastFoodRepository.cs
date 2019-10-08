@@ -2,30 +2,44 @@
 using PizzaShop.Core.Entity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace PizzaShop.Infrastructure.Repositories
 {
     public class FastFoodRepository : IFastFoodRepository
     {
+        PizzaShopContext ctx;
+
+        public FastFoodRepository(PizzaShopContext ctx)
+        {
+            this.ctx = ctx;
+        }
         public FastFood CreateFastFood(FastFood fastFood)
         {
-            throw new NotImplementedException();
+            ctx.FastFoods.Add(fastFood);
+            ctx.SaveChanges();
+            return fastFood;
+
         }
 
         public FastFood DeleteFastFood(int id)
         {
-            throw new NotImplementedException();
+            FastFood ff = ReadById(id);
+            ctx.FastFoods.Remove(ff);
+            ctx.SaveChanges();
+            return ff;
         }
 
         public List<FastFood> ReadAllFastFood()
         {
-            throw new NotImplementedException();
+            return ctx.FastFoods.ToList();
         }
 
-        public FastFood UpdateFastFood(FastFood updateFastFood)
+        public FastFood ReadById(int id)
         {
-            throw new NotImplementedException();
+            return ctx.FastFoods.FirstOrDefault(ff => ff.Id == id);
         }
+
     }
 }
