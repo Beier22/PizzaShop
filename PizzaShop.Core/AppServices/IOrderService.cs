@@ -7,9 +7,9 @@ namespace PizzaShop.Core.AppServices
 {
     public interface IOrderService
     {
-        void Create(Order order);
-        List<Order> ReadAll();
+        void CreateOrder(Order order);
+        List<Order> ReadAllOrders();
         Order ReadById(int id);
-        void Delete(int id);
+        void DeleteOrder(int id);
     }
 }

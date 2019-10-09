@@ -24,15 +24,6 @@ namespace PizzaShop.Core.AppServices.Implementation
             repo.DeleteOrderItem(id);
         }
 
-        //public OrderItem GetPriceOfItems()
-        //{
-        //    List<OrderItem> items = repo.GetAllOrderItems();
-        //    foreach (var item in items)
-        //    {
-        //        var total += item.orderPrice();
-        //    }
-        //}
-
         public List<OrderItem> ReadAllOrderItems()
         {
             return repo.GetAllOrderItems();

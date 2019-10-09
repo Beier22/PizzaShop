@@ -13,17 +13,17 @@ namespace PizzaShop.Core.AppServices.Implementation
         {
             this.repo = repo;
         }
-        public void Create(Order order)
+        public void CreateOrder(Order order)
         {
             repo.CreateOrder(order);
         }
 
-        public void Delete(int id)
+        public void DeleteOrder(int id)
         {
             repo.DeleteOrder(id);
         }
 
-        public List<Order> ReadAll()
+        public List<Order> ReadAllOrders()
         {
             return repo.ReadAllOrders();
         }

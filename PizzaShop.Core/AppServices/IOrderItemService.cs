@@ -11,6 +11,5 @@ namespace PizzaShop.Core.AppServices
         List<OrderItem> ReadAllOrderItems();
         OrderItem ReadById(int id);
         void DeleteOrderItem(int id);
-        //OrderItem GetPriceOfItems();
     }
 }

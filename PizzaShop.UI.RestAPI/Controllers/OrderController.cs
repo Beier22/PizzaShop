@@ -23,7 +23,7 @@ namespace PizzaShop.UI.RestAPI.Controllers
             [HttpGet]
             public ActionResult<IEnumerable<Order>> Get()
             {
-                return serv.ReadAll();
+                return serv.ReadAllOrders();
             }
 
             // GET api/values/5
@@ -37,7 +37,7 @@ namespace PizzaShop.UI.RestAPI.Controllers
             [HttpPost]
             public void Post([FromBody] Order order)
             {
-                serv.Create(order);
+                serv.CreateOrder(order);
             }
 
             // PUT api/values/5
@@ -50,7 +50,7 @@ namespace PizzaShop.UI.RestAPI.Controllers
             [HttpDelete("{id}")]
             public void Delete(int id)
             {
-                serv.Delete(id);
+                serv.DeleteOrder(id);
             }
         }
     
