@@ -9,5 +9,9 @@ namespace PizzaShop.Core.DomainServices
     {
         List<OrderItem> GetAllOrderItems();
         OrderItem GetOrderItem();
+        void CreateOrderItem(OrderItem orderItem);
+        OrderItem ReadById(int id);
+        void DeleteOrderItem(int id);
+        
     }
 }

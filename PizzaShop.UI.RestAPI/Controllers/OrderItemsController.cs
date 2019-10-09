@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PizzaShop.Core.AppServices;
+using PizzaShop.Core.Entity;
 
 namespace PizzaShop.UI.RestAPI.Controllers
 {
@@ -11,24 +13,31 @@ namespace PizzaShop.UI.RestAPI.Controllers
     [ApiController]
     public class OrderItemsController : ControllerBase
     {
+        IOrderItemService serv;
+
+        public OrderItemsController(IOrderItemService serv)
+        {
+            this.serv = serv;
+        }
         // GET api/values
         [HttpGet]
-        public ActionResult<string> Get()
+        public ActionResult<IEnumerable<OrderItem>> Get()
         {
-            return "null";
+            return serv.ReadAllOrderItems();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public OrderItem Get(int id)
         {
-            return "value";
+            return serv.ReadById(id);
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] OrderItem orderItem)
         {
+            serv.CreateOrderItem(orderItem);
         }
 
         // PUT api/values/5
@@ -41,6 +50,7 @@ namespace PizzaShop.UI.RestAPI.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            serv.DeleteOrderItem(id);
         }
     }
 }

@@ -9,5 +9,8 @@ namespace PizzaShop.Core.Entity
         public int OrderId { get; set; }
         public int ItemId { get; set; }
         public int TypeId { get; set; }
+        public int Size { get; set; }
+       // public double orderPrice { get; set; }
+        
     }
 }
