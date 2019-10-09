@@ -1,10 +1,13 @@
-﻿using System;
+﻿using PizzaShop.Core.Entity;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace PizzaShop.Core.DomainServices
 {
-    interface IOrderItemRepository
+    public interface IOrderItemRepository
     {
+        List<OrderItem> GetAllOrderItems();
+        OrderItem GetOrderItem();
     }
 }

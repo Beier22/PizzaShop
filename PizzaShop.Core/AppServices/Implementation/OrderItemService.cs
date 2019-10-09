@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PizzaShop.Core.AppServices.Implementation
 {
-    interface OrderItemService
+    public class OrderItemService : IOrderItemService
     {
     }
 }
