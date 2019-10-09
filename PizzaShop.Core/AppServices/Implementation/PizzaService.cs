@@ -34,5 +34,10 @@ namespace PizzaShop.Core.AppServices.Implementation
         {
             return repo.ReadById(id);
         }
+
+        public void UpdatePizza(Pizza pizza)
+        {
+            repo.UpdatePizza(pizza);
+        }
     }
 }

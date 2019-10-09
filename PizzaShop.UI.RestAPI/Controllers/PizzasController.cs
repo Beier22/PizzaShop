@@ -41,8 +41,17 @@ namespace PizzaShop.UI.RestAPI.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult<Pizza> Put(int id, [FromBody] Pizza pizza)
         {
+            if(id == pizza.Id)
+            {
+                serv.UpdatePizza(pizza);
+            }
+            else
+            {
+                return BadRequest("ID doesn't match");
+            }
+            return Ok(pizza);
         }
 
         // DELETE api/values/5

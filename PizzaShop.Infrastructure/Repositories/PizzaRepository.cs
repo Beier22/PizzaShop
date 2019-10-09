@@ -1,4 +1,5 @@
-﻿using PizzaShop.Core.DomainServices;
+﻿using Microsoft.EntityFrameworkCore;
+using PizzaShop.Core.DomainServices;
 using PizzaShop.Core.Entity;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,9 @@ namespace PizzaShop.Infrastructure.Repositories
 
         public Pizza UpdatePizza(Pizza updatePizza)
         {
-            throw new NotImplementedException();
+            ctx.Attach(updatePizza).State = EntityState.Modified;
+            ctx.SaveChanges();
+            return updatePizza;
         }
         public Pizza ReadById(int id)
         {

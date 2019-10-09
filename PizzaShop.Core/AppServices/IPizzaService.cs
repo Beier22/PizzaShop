@@ -11,5 +11,6 @@ namespace PizzaShop.Core.AppServices
         void DeletePizza(int id);
         void CreatePizza(Pizza pizza);
         Pizza ReadById(int id);
+        void UpdatePizza(Pizza pizza);
     }
 }
