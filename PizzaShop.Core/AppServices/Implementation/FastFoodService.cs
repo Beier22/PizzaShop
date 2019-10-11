@@ -36,7 +36,7 @@ namespace PizzaShop.Core.AppServices.Implementation
 
         public FastFood Update(FastFood fastfood)
         {
-            throw new NotImplementedException();
+            return repo.Update(fastfood);
         }
     }
 }

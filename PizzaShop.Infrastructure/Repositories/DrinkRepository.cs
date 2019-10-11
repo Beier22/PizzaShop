@@ -19,7 +19,8 @@ namespace PizzaShop.Infrastructure.Repositories
 
         public void Create(Drink drink)
         {
-            ctx.Drinks.Add(drink);
+            //ctx.Drinks.Add(drink);
+            ctx.Drinks.Attach(drink).State = EntityState.Added;
             ctx.SaveChanges();
         }
 

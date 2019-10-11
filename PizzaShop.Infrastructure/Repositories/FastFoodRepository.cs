@@ -18,7 +18,8 @@ namespace PizzaShop.Infrastructure.Repositories
         }
         public FastFood CreateFastFood(FastFood fastFood)
         {
-            ctx.FastFoods.Add(fastFood);
+            //ctx.FastFoods.Add(fastFood);
+            ctx.FastFoods.Attach(fastFood).State = EntityState.Added;
             ctx.SaveChanges();
             return fastFood;
 

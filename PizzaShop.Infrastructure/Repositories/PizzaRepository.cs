@@ -19,7 +19,8 @@ namespace PizzaShop.Infrastructure.Repositories
         
         public void CreatePizza(Pizza pizza)
         {
-            var createdPizza = ctx.Pizzas.Add(pizza).Entity;
+            //var createdPizza = ctx.Pizzas.Add(pizza).Entity;
+            ctx.Pizzas.Attach(pizza).State = EntityState.Added;
             ctx.SaveChanges();     
         }
 
