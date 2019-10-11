@@ -12,6 +12,9 @@ namespace PizzaShop.Core.Entity
         public int PhoneNumber { get; set; }
         public string Address { get; set; }
         public string Message { get; set; }
+        public List<OrderPizza> OrderPizzas { get; set; }
+        public List<OrderFastfood> OrderFastfoods { get; set; }
+        public List<OrderDrink> OrderDrinks { get; set; }
 
     }
 }

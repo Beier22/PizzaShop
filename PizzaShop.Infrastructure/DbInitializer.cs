@@ -57,6 +57,26 @@ namespace PizzaShop.Infrastructure
                 Price = 19.99
             };
 
+            /*OrderPizza op1 = new OrderPizza
+            {
+                PizzaId = 1
+            };
+
+            Order o1 = new Order
+            {
+                Name = "Joe",
+                Email = "Mail",
+                PhoneNumber = 1234567,
+                Address = "Earth",
+                Message = "This is dog",
+                OrderPizzas = 
+                {
+                    op1
+                    
+                }
+
+            };*/
+
             pizzas.Add(p1);
             pizzas.Add(p2);
 
@@ -69,6 +89,7 @@ namespace PizzaShop.Infrastructure
             ctx.Pizzas.AddRange(pizzas);
             ctx.FastFoods.AddRange(fastfoods);
             ctx.Drinks.AddRange(drinks);
+            //ctx.Orders.Add(o1);
             ctx.SaveChanges();
         }
     }

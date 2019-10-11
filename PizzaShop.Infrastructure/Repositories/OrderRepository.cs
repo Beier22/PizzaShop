@@ -1,4 +1,5 @@
-﻿using PizzaShop.Core.DomainServices;
+﻿using Microsoft.EntityFrameworkCore;
+using PizzaShop.Core.DomainServices;
 using PizzaShop.Core.Entity;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace PizzaShop.Infrastructure.Repositories
         }
         public void CreateOrder(Order order)
         {
-            ctx.Orders.Add(order);
+            ctx.Orders.Attach(order).State = Microsoft.EntityFrameworkCore.EntityState.Added;
             ctx.SaveChanges();
         }
 
@@ -30,12 +31,13 @@ namespace PizzaShop.Infrastructure.Repositories
 
         public List<Order> ReadAllOrders()
         {
-            return ctx.Orders.ToList();
+            var result = ctx.Orders.Include(o => o.OrderPizzas).ToList();
+            return result;
         }
 
         public Order ReadById(int id)
         {
-            return ctx.Orders.FirstOrDefault(o => o.Id == id);
+            return ctx.Orders.Include(o => o.OrderPizzas).FirstOrDefault(o => o.Id == id);
         }
 
         public Order UpdateOrder(Order updateOrder)

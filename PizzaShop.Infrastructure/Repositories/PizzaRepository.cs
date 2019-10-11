@@ -45,5 +45,17 @@ namespace PizzaShop.Infrastructure.Repositories
         {
             return ctx.Pizzas.FirstOrDefault(c => c.Id == id);
         }
+
+        public IEnumerable<Pizza> ReadSortedPizzas(Filter filter)
+
+        {
+            List<Pizza> sortedList = ReadAllPizzas();
+
+            sortedList = sortedList.Where(pizza => pizza.NormalPrice.Equals(filter.Pizza))
+            .Skip((filter.CurrentPage - 1) * 10)
+            .Take(10).ToList();
+
+            return sortedList;
+        }
     }
 }

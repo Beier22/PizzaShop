@@ -11,6 +11,8 @@ namespace PizzaShop.Core.Entity
         public double NormalPrice { get; set; }
         public double FamilyPrice { get; set; }
         public string Toppings { get; set; }
-        
+
+        public List<OrderPizza> OrderPizzas { get; set; }
+
     }
 }

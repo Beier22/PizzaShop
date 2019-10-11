@@ -11,5 +11,6 @@ namespace PizzaShop.Core.DomainServices
         List<FastFood> ReadAllFastFood();
         FastFood ReadById(int id);
         FastFood DeleteFastFood(int id);
+        FastFood Update(FastFood fastfood);
     }
 }

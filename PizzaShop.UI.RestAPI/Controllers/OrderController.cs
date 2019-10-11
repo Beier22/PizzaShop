@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 namespace PizzaShop.UI.RestAPI.Controllers
 {
 
-        [Route("api/[controller]")]
-        [ApiController]
+    [Route("api/[controller]")]
+    [ApiController]
     public class OrderController : ControllerBase
     {
             IOrderService serv;

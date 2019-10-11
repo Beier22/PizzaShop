@@ -11,5 +11,6 @@ namespace PizzaShop.Core.AppServices
         List<FastFood> ReadAll();
         FastFood ReadById(int id);
         void Delete(int id);
+        FastFood Update(FastFood fastfood);
     }
 }

@@ -1,4 +1,5 @@
-﻿using PizzaShop.Core.DomainServices;
+﻿using Microsoft.EntityFrameworkCore;
+using PizzaShop.Core.DomainServices;
 using PizzaShop.Core.Entity;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,13 @@ namespace PizzaShop.Infrastructure.Repositories
         public FastFood ReadById(int id)
         {
             return ctx.FastFoods.FirstOrDefault(ff => ff.Id == id);
+        }
+
+        public FastFood Update(FastFood fastfood)
+        {
+            ctx.Attach(fastfood).State = EntityState.Modified;
+            ctx.SaveChanges();
+            return fastfood;
         }
 
     }

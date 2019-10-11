@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using PizzaShop.Core.AppServices;
 using PizzaShop.Core.AppServices.Implementation;
 using PizzaShop.Core.DomainServices;
@@ -48,9 +49,6 @@ namespace PizzaShop.UI.RestAPI
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IOrderService, OrderService>();
 
-            services.AddScoped<IOrderItemRepository, OrderItemRepository>();
-            services.AddScoped<IOrderItemService, OrderItemService>();
-
             if (Environment.IsDevelopment())
             {
                 services.AddDbContext<PizzaShopContext>(
@@ -63,6 +61,11 @@ namespace PizzaShop.UI.RestAPI
                     opt => opt.UseSqlServer(Configuration.GetConnectionString("defaultConnection"))
                     );
             }
+
+            services.AddMvc().AddJsonOptions(options => {
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                options.SerializerSettings.MaxDepth = 3;
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

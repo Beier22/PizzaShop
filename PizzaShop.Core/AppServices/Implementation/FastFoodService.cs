@@ -33,5 +33,10 @@ namespace PizzaShop.Core.AppServices.Implementation
         {
             return repo.ReadById(id);
         }
+
+        public FastFood Update(FastFood fastfood)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

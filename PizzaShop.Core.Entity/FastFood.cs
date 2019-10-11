@@ -10,5 +10,7 @@ namespace PizzaShop.Core.Entity
         public string Name { get; set; }
         public double SmallPrice { get; set; }
         public double LargePrice { get; set; }
+
+        public List<OrderFastfood> OrderFastfoods { get; set; }
     }
 }
