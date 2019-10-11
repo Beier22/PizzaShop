@@ -11,5 +11,6 @@ namespace PizzaShop.Core.DomainServices
         List<Drink> ReadAll();
         void Create(Drink drink);
         void Delete(int id);
+        Drink UpdateDrink(Drink updateDrink);
     }
 }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace PizzaShop.Infrastructure.Repositories
 {
@@ -37,6 +38,13 @@ namespace PizzaShop.Infrastructure.Repositories
         public Drink ReadById(int id)
         {
             return ctx.Drinks.FirstOrDefault(d => d.Id == id);
+        }
+
+        public Drink UpdateDrink(Drink updateDrink)
+        {
+            ctx.Attach(updateDrink).State = EntityState.Modified;
+            ctx.SaveChanges();
+            return updateDrink;
         }
     }
 }

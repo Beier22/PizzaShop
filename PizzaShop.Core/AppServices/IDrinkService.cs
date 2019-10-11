@@ -11,7 +11,7 @@ namespace PizzaShop.Core.AppServices
         List<Drink> ReadAll();
         Drink ReadById(int id);
         void Delete(int id);
-
+        void UpdateDrink(Drink drink);
 
     }
 }
